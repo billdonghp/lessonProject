@@ -1,0 +1,10 @@
+server.port=8999
+server.servlet.context-path=/api
+
+#mybatis.mapperLocations=classpath*:com/example.demo/mapper/*.xml
+mybatis.mapper-locations=classpath*:com/example.demo/mapper/*.xml
+
+spring.datasource.url=jdbc:mysql://localhost:3306/multiseafoods?characterEncoding=utf8&serverTimezone=GMT%2B8
+spring.datasource.username=root
+spring.datasource.password=admin
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver

@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.component.LimitComponent;
+import com.example.demo.properties.LimitProperties;
 
 @Controller
 public class PropertiesController {
 	@Autowired
-	private LimitComponent lc;
+	private LimitProperties lc;
 	@RequestMapping(value="val/{name}",method=RequestMethod.GET)
 	@ResponseBody
 	

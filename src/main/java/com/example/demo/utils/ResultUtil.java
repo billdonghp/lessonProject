@@ -14,7 +14,7 @@ public class ResultUtil {
 	}
 	
 	public static Result ok() {
-		return ok();
+		return ok(null);
 	}
 	
 	public static Result error(Integer code,String msg) {

@@ -13,6 +13,7 @@ import com.example.demo.authorization.annotation.CurrentUser;
 import com.example.demo.authorization.manager.TokenManager;
 import com.example.demo.entity.Result;
 import com.example.demo.entity.User;
+import com.example.demo.service.LoginService;
 import com.example.demo.utils.ResultUtil;
 
 
@@ -20,11 +21,20 @@ import com.example.demo.utils.ResultUtil;
 public class LoginController {
 	@Autowired
 	private TokenManager rtm;
+	@Autowired
+	private LoginService ls;
 	
 	@GetMapping("login/{username}")
 	public Result login(@PathVariable("username") String username) {
 		return ResultUtil.ok(rtm.creatToken(username).toString());
 	}
+	
+	@GetMapping("login/{username}/{pwd}")
+	public void login1(@PathVariable("username") String username,
+					   @PathVariable("pwd") String pwd) throws Exception{
+		ls.login(username, pwd);
+	}
+	
 	
 	@Authorization
 	@PostMapping("check")

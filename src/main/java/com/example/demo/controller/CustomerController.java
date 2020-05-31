@@ -2,8 +2,11 @@ package com.example.demo.controller;
 
 import java.util.Date;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +19,11 @@ import com.example.demo.utils.ResultUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("customer/")
+@Slf4j
 public class CustomerController {
 	@Autowired
 	private CustomerService cs;
@@ -40,7 +46,12 @@ public class CustomerController {
 		return ResultUtil.error(-1, "error");
 	}
 	@PostMapping("credit")
-	public Result credit(Customer cu) {
+	public Result credit(@Valid Customer cu) {
+		/*
+		 * if(bindingResult.hasErrors()) {
+		 * log.info(bindingResult.getFieldError().getDefaultMessage()); return
+		 * ResultUtil.error(-1, "error"); }
+		 */
 		cu.setCreatedat(new Date());
 		cu.setUpdatedat(new Date());
 		if(cs.save(cu) == 1) {

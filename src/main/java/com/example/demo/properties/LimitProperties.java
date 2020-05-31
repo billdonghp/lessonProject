@@ -1,4 +1,4 @@
-package com.example.demo.component;
+package com.example.demo.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = "limit")
 @Getter
 @Setter
-public class LimitComponent {
+public class LimitProperties {
 	private String pageSize;
 	
 	private String description;

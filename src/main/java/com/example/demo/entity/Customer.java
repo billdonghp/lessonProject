@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 
 import lombok.Data;
 
@@ -15,7 +16,7 @@ public class Customer extends BaseEntity {
     private String address;
 
     private String remark;
-
+    @Max(value=10, message="最大值10")
     private Integer status;
 
 }
